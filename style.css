@@ -1,0 +1,119 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Header */
+h2 {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Container for Forms and Records */
+.container {
+    max-width: 900px;
+}
+
+/* Cards for Entry Forms */
+.card {
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 50px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #28a745, #218838);
+    border: none;
+}
+
+.btn-success:hover {
+    background: linear-gradient(45deg, #218838, #28a745);
+    transform: scale(1.05);
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #dc3545, #c82333);
+    border: none;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(45deg, #c82333, #dc3545);
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #0056b3, #007bff);
+    transform: scale(1.05);
+}
+
+/* Table Styling */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Hover Effect on Table Rows */
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #007bff;
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Form Elements */
+.form-label {
+    font-weight: bold;
+}
+
+.form-control, .form-select {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+
+footer {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}

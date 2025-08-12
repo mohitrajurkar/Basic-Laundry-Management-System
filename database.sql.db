@@ -1,0 +1,85 @@
+
+
+CREATE DATABASE IF NOT EXISTS LaundryManagement;
+USE LaundryManagement;
+
+
+
+
+CREATE TABLE IF NOT EXISTS Users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS ServiceType (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    service_name VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS LaundryType (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    laundry_type VARCHAR(50),
+    fabric VARCHAR(50),
+    weight DECIMAL(5,2)
+);
+
+
+DROP TABLE IF EXISTS NewLaundry; -- Drop old table safely
+CREATE TABLE IF NOT EXISTS NewLaundry (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(100) NOT NULL,
+    service_type_id INT,
+    date_received DATE,
+    priority VARCHAR(20),
+    amount DECIMAL(8,2),
+    num_shirts INT DEFAULT 0,
+    num_pants INT DEFAULT 0,
+    num_other INT DEFAULT 0,
+    FOREIGN KEY (service_type_id) REFERENCES ServiceType(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS DailySales (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(100) NOT NULL,
+    date_paid DATE,
+    amount DECIMAL(8,2)
+);
+
+
+
+
+INSERT INTO Users (username, password) VALUES
+('admin', 'admin123');
+
+
+INSERT INTO ServiceType (service_name) VALUES
+('Dry Cleaning'),
+('Deep Cleaning'),
+('Ironing');
+
+
+INSERT INTO LaundryType (laundry_type, fabric, weight) VALUES
+('Shirt', 'Cotton', 0.25),
+('Pants', 'Denim', 0.70),
+('Jacket', 'Leather', 1.20);
+
+-- Insert into NewLaundry (now includes number of shirts, pants, and others)
+INSERT INTO NewLaundry (customer_name, service_type_id, date_received, priority, amount, num_shirts, num_pants, num_other) VALUES
+('John Doe', 1, '2025-04-28', 'High', 500, 5, 2, 1),
+('Jane Smith', 2, '2025-04-28', 'Medium', 600, 3, 1, 2);
+
+-- Insert into DailySales
+INSERT INTO DailySales (customer_name, date_paid, amount) VALUES
+('John Doe', '2025-04-28', 500),
+('Jane Smith', '2025-04-28', 600);
+
+-- Step 4: View Data
+SELECT * FROM Users;
+SELECT * FROM ServiceType;
+SELECT * FROM LaundryType;
+SELECT * FROM NewLaundry;
+SELECT * FROM DailySales;
